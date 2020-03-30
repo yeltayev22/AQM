@@ -35,9 +35,6 @@ public class PlaceService {
         return convertToListPlaceDto(places);
     }
 
-    @Transactional
-    public PlaceDto
-
     private PlaceDto convertToDto(Place place) {
         PlaceDto placeDto = modelMapper.map(place, PlaceDto.class);
         return placeDto;

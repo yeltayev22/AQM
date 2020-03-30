@@ -6,9 +6,9 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name = "place")
+@Data
 public class Place {
 
     @Id
@@ -22,11 +22,8 @@ public class Place {
     @Column(name = "lat")
     private BigDecimal latitude;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "temperature")
-    private BigDecimal temperature;
+    @Column(name = "title")
+    private String title;
 
     @OneToMany(mappedBy = "place")
     private List<Gas> gasList;

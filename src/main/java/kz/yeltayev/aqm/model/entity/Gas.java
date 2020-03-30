@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -21,8 +22,11 @@ public class Gas {
     @Column(name = "temperature")
     private BigDecimal temperature;
 
-    @Column(name = "index")
-    private BigDecimal index;
+    @Column(name = "quality_index")
+    private BigDecimal qualityIndex;
+
+    @Column(name = "date")
+    private LocalDateTime dateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "place_id")

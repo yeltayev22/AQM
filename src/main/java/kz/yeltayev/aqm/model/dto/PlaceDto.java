@@ -10,7 +10,6 @@ public class PlaceDto {
     private Long id;
     private BigDecimal longitude;
     private BigDecimal latitude;
-    private String name;
-    private BigDecimal temperature;
+    private String title;
     private List<GasDto> gasList;
 }
