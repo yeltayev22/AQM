@@ -22,8 +22,8 @@ public class Gas {
     @Column(name = "temperature")
     private BigDecimal temperature;
 
-    @Column(name = "quality_index")
-    private BigDecimal qualityIndex;
+    @Column(name = "air_quality_index")
+    private BigDecimal airQualityIndex;
 
     @Column(name = "date")
     private LocalDateTime dateTime;
