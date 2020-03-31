@@ -1,7 +1,11 @@
 package kz.yeltayev.aqm.controller;
 
+import kz.yeltayev.aqm.exception.ResourceNotFoundException;
 import kz.yeltayev.aqm.model.dto.PressureDto;
+import kz.yeltayev.aqm.model.dto.TemperatureDto;
 import kz.yeltayev.aqm.model.entity.Pressure;
+import kz.yeltayev.aqm.model.request.PressureRequest;
+import kz.yeltayev.aqm.model.request.TemperatureRequest;
 import kz.yeltayev.aqm.service.PressureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +36,7 @@ public class PressureController {
     }
 
     @PostMapping("/pressures")
-    public PressureDto addPressure(@Valid @RequestBody Pressure pressure) {
-        return pressureService.addPressure(pressure);
+    public PressureDto addPressure(@Valid @RequestBody PressureRequest pressureRequest) throws ResourceNotFoundException {
+        return pressureService.addPressure(pressureRequest);
     }
 }
