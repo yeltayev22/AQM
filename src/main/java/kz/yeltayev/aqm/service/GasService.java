@@ -1,8 +1,13 @@
 package kz.yeltayev.aqm.service;
 
+import kz.yeltayev.aqm.exception.ResourceNotFoundException;
 import kz.yeltayev.aqm.model.dto.GasDto;
 import kz.yeltayev.aqm.model.entity.Gas;
+import kz.yeltayev.aqm.model.entity.Place;
+import kz.yeltayev.aqm.model.entity.Pressure;
+import kz.yeltayev.aqm.model.request.GasRequest;
 import kz.yeltayev.aqm.repository.GasRepository;
+import kz.yeltayev.aqm.repository.PlaceRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,17 +21,32 @@ import java.util.stream.Collectors;
 public class GasService {
 
     private GasRepository gasRepository;
+    private PlaceRepository placeRepository;
 
     @Autowired
     private ModelMapper modelMapper;
 
     @Autowired
-    public GasService(GasRepository gasRepository) {
+    public GasService(GasRepository gasRepository, PlaceRepository placeRepository) {
         this.gasRepository = gasRepository;
+        this.placeRepository = placeRepository;
     }
 
     @Transactional
-    public GasDto addGas(Gas gas) {
+    public GasDto addGas(GasRequest gasRequest) throws ResourceNotFoundException {
+        Gas gas = new Gas();
+
+        gas.setDateTime(gasRequest.getDateTime());
+        gas.setAmmonia(gasRequest.getAmmonia());
+        gas.setCarbonMonoxide(gasRequest.getCarbonMonoxide());
+        gas.setH2s(gasRequest.getH2s());
+        gas.setHydrogen(gasRequest.getHydrogen());
+
+        Place place = placeRepository.findById(gasRequest.getPlaceId()).orElseThrow(
+                () -> new ResourceNotFoundException("Place not found for this id : " + gasRequest.getPlaceId()));
+
+        gas.setPlace(place);
+
         return convertToDto(gasRepository.save(gas));
     }
 

@@ -1,7 +1,9 @@
 package kz.yeltayev.aqm.controller;
 
+import kz.yeltayev.aqm.exception.ResourceNotFoundException;
 import kz.yeltayev.aqm.model.dto.GasDto;
 import kz.yeltayev.aqm.model.entity.Gas;
+import kz.yeltayev.aqm.model.request.GasRequest;
 import kz.yeltayev.aqm.service.GasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +34,7 @@ public class GasController {
     }
 
     @PostMapping("/gases")
-    public GasDto addGas(@Valid @RequestBody Gas gas) {
-        return gasService.addGas(gas);
+    public GasDto addGas(@Valid @RequestBody GasRequest gasRequest) throws ResourceNotFoundException {
+        return gasService.addGas(gasRequest);
     }
 }
