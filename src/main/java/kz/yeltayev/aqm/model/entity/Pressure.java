@@ -1,5 +1,6 @@
 package kz.yeltayev.aqm.model.entity;
 
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,25 +9,16 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "gas")
-public class Gas {
+@Table(name = "pressure")
+public class Pressure {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "hydrogen")
-    private BigDecimal hydrogen;
-
-    @Column(name = "carbon_monoxide")
-    private BigDecimal carbonMonoxide;
-
-    @Column(name = "ammonia")
-    private BigDecimal ammonia;
-
-    @Column(name = "h2s")
-    private BigDecimal h2s;
+    @Column(name = "pressure")
+    private BigDecimal pressure;
 
     @Column(name = "date")
     private LocalDateTime dateTime;
@@ -35,3 +27,4 @@ public class Gas {
     @JoinColumn(name = "place_id")
     private Place place;
 }
+

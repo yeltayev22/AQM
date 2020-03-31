@@ -8,25 +8,19 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "gas")
-public class Gas {
+@Table(name = "temperature")
+public class Temperature {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "hydrogen")
-    private BigDecimal hydrogen;
+    @Column(name = "temperature")
+    private BigDecimal temperature;
 
-    @Column(name = "carbon_monoxide")
-    private BigDecimal carbonMonoxide;
-
-    @Column(name = "ammonia")
-    private BigDecimal ammonia;
-
-    @Column(name = "h2s")
-    private BigDecimal h2s;
+    @Column(name = "humidity")
+    private BigDecimal humidity;
 
     @Column(name = "date")
     private LocalDateTime dateTime;

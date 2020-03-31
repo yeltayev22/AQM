@@ -27,4 +27,10 @@ public class Place {
 
     @OneToMany(mappedBy = "place")
     private List<Gas> gasList;
+
+    @OneToMany(mappedBy = "place")
+    private List<Pressure> pressureList;
+
+    @OneToMany(mappedBy = "place")
+    private List<Temperature> temperatureList;
 }
