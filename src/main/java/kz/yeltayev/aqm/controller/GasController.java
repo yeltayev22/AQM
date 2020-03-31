@@ -1,11 +1,8 @@
 package kz.yeltayev.aqm.controller;
 
 import kz.yeltayev.aqm.model.dto.GasDto;
-import kz.yeltayev.aqm.model.dto.PlaceDto;
 import kz.yeltayev.aqm.model.entity.Gas;
-import kz.yeltayev.aqm.model.entity.Place;
 import kz.yeltayev.aqm.service.GasService;
-import kz.yeltayev.aqm.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +23,12 @@ public class GasController {
     @GetMapping("/gases")
     public List<GasDto> fetchGases() {
         return gasService.fetchGases();
+    }
+
+    @GetMapping("/gases/{placeId}")
+    public List<GasDto> fetchGasesByPlace(@PathVariable(value = "placeId") Long placeId) {
+        List<GasDto> gasDtoList = gasService.fetchGasesByPlace(placeId);
+        return gasDtoList;
     }
 
     @PostMapping("/gases")

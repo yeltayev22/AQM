@@ -36,6 +36,12 @@ public class GasService {
         return convertToListGasDto(gases);
     }
 
+    @Transactional
+    public List<GasDto> fetchGasesByPlace(Long placeId) {
+        List<Gas> gasList = gasRepository.fetchGasesByPlace(placeId);
+        return convertToListGasDto(gasList);
+    }
+
     private GasDto convertToDto(Gas gas) {
         GasDto gasDto = modelMapper.map(gas, GasDto.class);
         return gasDto;

@@ -2,7 +2,6 @@ package kz.yeltayev.aqm.model.dto;
 
 import lombok.Data;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
