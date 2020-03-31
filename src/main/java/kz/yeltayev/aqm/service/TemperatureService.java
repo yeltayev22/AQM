@@ -36,6 +36,12 @@ public class TemperatureService {
         return convertToListTemperatureDto(temperatures);
     }
 
+    @Transactional
+    public List<TemperatureDto> fetchTemperaturesByPlace(Long placeId) {
+        List<Temperature> temperatureList = temperatureRepository.fetchTemperaturesByPlace(placeId);
+        return convertToListTemperatureDto(temperatureList);
+    }
+
     private TemperatureDto convertToDto(Temperature temperature) {
         TemperatureDto temperatureDto = modelMapper.map(temperature, TemperatureDto.class);
         return temperatureDto;

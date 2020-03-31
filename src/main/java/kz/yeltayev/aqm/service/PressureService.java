@@ -36,6 +36,12 @@ public class PressureService {
         return convertToListPressureDto(pressures);
     }
 
+    @Transactional
+    public List<PressureDto> fetchPressuresByPlace(Long placeId) {
+        List<Pressure> pressureList = pressureRepository.fetchPressuresByPlace(placeId);
+        return convertToListPressureDto(pressureList);
+    }
+
     private PressureDto convertToDto(Pressure pressure) {
         PressureDto pressureDto = modelMapper.map(pressure, PressureDto.class);
         return pressureDto;
