@@ -1,7 +1,9 @@
 package kz.yeltayev.aqm.controller;
 
+import kz.yeltayev.aqm.exception.ResourceNotFoundException;
 import kz.yeltayev.aqm.model.dto.TemperatureDto;
 import kz.yeltayev.aqm.model.entity.Temperature;
+import kz.yeltayev.aqm.model.request.TemperatureRequest;
 import kz.yeltayev.aqm.service.TemperatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +34,7 @@ public class TemperatureController {
     }
 
     @PostMapping("/temperatures")
-    public TemperatureDto addTemperature(@Valid @RequestBody Temperature temperature) {
-        return temperatureService.addTemperature(temperature);
+    public TemperatureDto addTemperature(@Valid @RequestBody TemperatureRequest temperatureRequest) throws ResourceNotFoundException {
+        return temperatureService.addTemperature(temperatureRequest);
     }
 }
