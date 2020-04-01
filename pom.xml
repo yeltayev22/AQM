@@ -77,20 +77,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-<!--			<plugin>-->
-<!--				<groupId>com.microsoft.azure</groupId>-->
-<!--				<artifactId>azure-webapp-maven-plugin</artifactId>-->
-<!--				<version>1.7.0</version>-->
-<!--				<configuration>-->
-<!--					<authentication>-->
-<!--						<serverId>azure-auth</serverId>-->
-<!--					</authentication>-->
-<!--					<linuxRuntime>tomcat 8.5-jre8</linuxRuntime>-->
-<!--					<appName>utility-yeltayev</appName>-->
-<!--					<resourceGroup>yeltayev</resourceGroup>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
 		</plugins>
 	</build>
 
