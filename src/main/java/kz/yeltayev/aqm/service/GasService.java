@@ -4,7 +4,6 @@ import kz.yeltayev.aqm.exception.ResourceNotFoundException;
 import kz.yeltayev.aqm.model.dto.GasDto;
 import kz.yeltayev.aqm.model.entity.Gas;
 import kz.yeltayev.aqm.model.entity.Place;
-import kz.yeltayev.aqm.model.entity.Pressure;
 import kz.yeltayev.aqm.model.request.GasRequest;
 import kz.yeltayev.aqm.repository.GasRepository;
 import kz.yeltayev.aqm.repository.PlaceRepository;

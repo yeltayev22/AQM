@@ -1,6 +1,5 @@
 package kz.yeltayev.aqm.model.entity;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,13 +8,19 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "pressure")
-public class Pressure {
+@Table(name = "weather")
+public class Weather {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "temperature")
+    private BigDecimal temperature;
+
+    @Column(name = "humidity")
+    private BigDecimal humidity;
 
     @Column(name = "pressure")
     private BigDecimal pressure;
@@ -27,4 +32,3 @@ public class Pressure {
     @JoinColumn(name = "place_id")
     private Place place;
 }
-

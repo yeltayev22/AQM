@@ -12,6 +12,5 @@ public class PlaceDto {
     private BigDecimal latitude;
     private String title;
     private List<GasDto> gasList;
-    private List<TemperatureDto> temperatureList;
-    private List<PressureDto> pressureList;
+    private List<WeatherDto> weatherList;
 }

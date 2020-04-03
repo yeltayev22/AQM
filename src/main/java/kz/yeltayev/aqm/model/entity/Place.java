@@ -22,15 +22,18 @@ public class Place {
     @Column(name = "lat")
     private BigDecimal latitude;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "aqi")
+    private int aqi;
 
     @OneToMany(mappedBy = "place")
     private List<Gas> gasList;
 
     @OneToMany(mappedBy = "place")
-    private List<Pressure> pressureList;
-
-    @OneToMany(mappedBy = "place")
-    private List<Temperature> temperatureList;
+    private List<Weather> weatherList;
 }
