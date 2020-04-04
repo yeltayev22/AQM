@@ -1,7 +1,11 @@
 package kz.yeltayev.aqm.service;
 
+import kz.yeltayev.aqm.model.dto.GasDto;
 import kz.yeltayev.aqm.model.dto.PlaceDto;
+import kz.yeltayev.aqm.model.dto.WeatherDto;
+import kz.yeltayev.aqm.model.entity.Gas;
 import kz.yeltayev.aqm.model.entity.Place;
+import kz.yeltayev.aqm.model.entity.Weather;
 import kz.yeltayev.aqm.repository.PlaceRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +40,26 @@ public class PlaceService {
     }
 
     private PlaceDto convertToDto(Place place) {
-        PlaceDto placeDto = modelMapper.map(place, PlaceDto.class);
+        PlaceDto placeDto = new PlaceDto();
+        placeDto.setId(place.getId());
+        placeDto.setLatitude(place.getLatitude());
+        placeDto.setLongitude(place.getLongitude());
+        placeDto.setAqi(place.getAqi());
+        placeDto.setCountry(place.getCountry());
+        placeDto.setCity(place.getCity());
+
+        List<Gas> gasList = place.getGasList();
+        if (!gasList.isEmpty()) {
+            gasList.sort((a, b) -> b.getDateTime().compareTo(a.getDateTime()));
+            placeDto.setGas(modelMapper.map(gasList.get(0), GasDto.class));
+        }
+
+        List<Weather> weatherList = place.getWeatherList();
+        if (!weatherList.isEmpty()) {
+            weatherList.sort((a, b) -> b.getDateTime().compareTo(a.getDateTime()));
+            placeDto.setWeather(modelMapper.map(weatherList.get(0), WeatherDto.class));
+        }
+
         return placeDto;
     }
 
