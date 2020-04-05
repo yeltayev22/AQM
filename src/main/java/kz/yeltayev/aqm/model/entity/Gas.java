@@ -16,17 +16,11 @@ public class Gas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "hydrogen")
-    private BigDecimal hydrogen;
+    @Column(name = "tgs2600")
+    private BigDecimal tgs2600;
 
-    @Column(name = "carbon_monoxide")
-    private BigDecimal carbonMonoxide;
-
-    @Column(name = "ammonia")
-    private BigDecimal ammonia;
-
-    @Column(name = "h2s")
-    private BigDecimal h2s;
+    @Column(name = "tgs2602")
+    private BigDecimal tgs2602;
 
     @Column(name = "date")
     private LocalDateTime dateTime;

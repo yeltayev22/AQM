@@ -36,10 +36,8 @@ public class GasService {
         Gas gas = new Gas();
 
         gas.setDateTime(gasRequest.getDateTime());
-        gas.setAmmonia(gasRequest.getAmmonia());
-        gas.setCarbonMonoxide(gasRequest.getCarbonMonoxide());
-        gas.setH2s(gasRequest.getH2s());
-        gas.setHydrogen(gasRequest.getHydrogen());
+        gas.setTgs2600(gasRequest.getTgs2600());
+        gas.setTgs2602(gasRequest.getTgs2602());
 
         Place place = placeRepository.findById(gasRequest.getPlaceId()).orElseThrow(
                 () -> new ResourceNotFoundException("Place not found for this id : " + gasRequest.getPlaceId()));

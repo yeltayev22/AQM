@@ -8,9 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class GasDto {
     private Long id;
-    private BigDecimal hydrogen;
-    private BigDecimal carbonMonoxide;
-    private BigDecimal ammonia;
-    private BigDecimal h2s;
+    private BigDecimal tgs2600;
+    private BigDecimal tgs2602;
     private LocalDateTime dateTime;
 }

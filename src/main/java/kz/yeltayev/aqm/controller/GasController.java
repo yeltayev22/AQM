@@ -2,7 +2,6 @@ package kz.yeltayev.aqm.controller;
 
 import kz.yeltayev.aqm.exception.ResourceNotFoundException;
 import kz.yeltayev.aqm.model.dto.GasDto;
-import kz.yeltayev.aqm.model.entity.Gas;
 import kz.yeltayev.aqm.model.request.GasRequest;
 import kz.yeltayev.aqm.service.GasService;
 import org.springframework.beans.factory.annotation.Autowired;
