@@ -25,7 +25,7 @@ public class Scheduler {
     /**
      * how it works: https://stackoverflow.com/questions/26147044/spring-cron-expression-for-every-day-101am
      */
-    @Scheduled(cron = "0 0 1 * * *")
+    @Scheduled(cron = "0 15 1 * * *")
     public void dailyAirVisualScheduler() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         Date now = new Date();
