@@ -35,7 +35,7 @@ public class PlaceService {
 
     @Transactional
     public List<PlaceDto> fetchPlaces() {
-        List<Place> places = placeRepository.fetchPublicPlaces();
+        List<Place> places = placeRepository.findAll();
         return convertToListPlaceDto(places);
     }
 
@@ -51,6 +51,7 @@ public class PlaceService {
         placeDto.setLatitude(place.getLatitude());
         placeDto.setLongitude(place.getLongitude());
         placeDto.setAqi(place.getAqi());
+        placeDto.setAccessCode(place.getAccessCode());
         placeDto.setCountry(place.getCountry());
         placeDto.setCity(place.getCity());
 

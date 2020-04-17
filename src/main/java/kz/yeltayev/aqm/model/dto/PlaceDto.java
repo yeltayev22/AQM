@@ -12,6 +12,7 @@ public class PlaceDto {
     private String country;
     private String city;
     private int aqi;
+    private String accessCode;
     private GasDto gas;
     private WeatherDto weather;
 }

@@ -11,9 +11,6 @@ import java.util.List;
 @Repository
 public interface PlaceRepository extends JpaRepository<Place, Long> {
 
-    @Query(value = "SELECT * FROM Place place WHERE place.access_code IS NULL or place.access_code = ''", nativeQuery = true)
-    List<Place> fetchPublicPlaces();
-
     @Query(value = "SELECT * FROM Place place WHERE place.access_code = ?1", nativeQuery = true)
     Place findByAccessCode(String accessCode);
 
