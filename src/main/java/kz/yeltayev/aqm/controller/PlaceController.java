@@ -25,6 +25,11 @@ public class PlaceController {
         return placeService.fetchPlaces();
     }
 
+    @GetMapping("/places/{accessCode}")
+    public PlaceDto fetchPlaceByAccessCode(@PathVariable(value = "accessCode") String accessCode) {
+        return placeService.fetchPlaceByAccessCode(accessCode);
+    }
+
     @PostMapping("/places")
     public PlaceDto addPlace(@Valid @RequestBody Place place) {
         return placeService.addPlace(place);

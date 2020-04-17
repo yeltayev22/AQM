@@ -35,8 +35,14 @@ public class PlaceService {
 
     @Transactional
     public List<PlaceDto> fetchPlaces() {
-        List<Place> places = placeRepository.findAll();
+        List<Place> places = placeRepository.fetchPublicPlaces();
         return convertToListPlaceDto(places);
+    }
+
+    @Transactional
+    public PlaceDto fetchPlaceByAccessCode(String accessCode) {
+        Place place = placeRepository.findByAccessCode(accessCode);
+        return convertToDto(place);
     }
 
     private PlaceDto convertToDto(Place place) {

@@ -31,6 +31,9 @@ public class Place {
     @Column(name = "aqi")
     private int aqi;
 
+    @Column(name = "access_code")
+    private String accessCode;
+
     @OneToMany(mappedBy = "place")
     private List<Gas> gasList;
 
